@@ -1,38 +1,107 @@
-.App {
-  text-align: center;
+body.light-mode {
+  background-color: white;
+  color: black;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+body.light-mode .navbar {
+  background-color: white;
+  color: black;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+body.light-mode .navbar .navbar-brand,
+body.light-mode .navbar .nav-link {
+  color: black;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+body.light-mode .navbar .nav-link:hover {
+  color: #007bff;
+}
+
+body.light-mode .profile-img {
+  max-width: 250px;
+  height: auto;
+}
+
+body.light-mode .theme-toggle button {
+  background-color: #007bff;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+body.dark-mode {
+  background-color: #121212;
+  color: white;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+body.dark-mode .navbar {
+  background-color: #333;
+  color: white;
+}
+
+body.dark-mode .navbar .navbar-brand,
+body.dark-mode .navbar .nav-link {
+  color: white;
+}
+
+body.dark-mode .navbar .nav-link:hover {
+  color: #007bff;
+}
+
+body.dark-mode .profile-img {
+  max-width: 250px;
+  height: auto;
+}
+
+body.dark-mode .theme-toggle button {
+  background-color: #444;
+  color: white;
+}
+
+body.light-mode #about,
+body.dark-mode #about,
+body.light-mode #contact,
+body.dark-mode #contact,
+body.light-mode #skills,
+body.dark-mode #skills {
+  padding: 30px 0;
+}
+
+body.light-mode #contact {
+  background-color: #f8f9fa;
+  color: black;
+}
+
+body.dark-mode #contact {
+  background-color: #333;
+  color: white;
+}
+
+body.light-mode #skills {
+  background-color: #f8f9fa;
+  color: black;
+}
+
+body.dark-mode #skills {
+  background-color: #121212;
+  color: white;
+}
+
+body.light-mode #skills .card {
+  background-color: white;
+  color: black;
+}
+
+body.dark-mode #skills .card {
+  background-color: #1e1e1e;
+  color: white;
+}
+
+#skills, .card {
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.theme-toggle {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 100;
 }

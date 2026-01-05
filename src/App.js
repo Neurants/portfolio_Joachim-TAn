@@ -1,65 +1,126 @@
-import React from 'react';
-import { Container, Row, Col, Navbar, Nav, Card, Button } from 'react-bootstrap';
+import React, { useState, useEffect } from 'react';
+import { Container, Row, Col, Navbar, Nav, Button, Image, Card } from 'react-bootstrap';
+import profilePic from './assets/images/profile_pic.jpg';
+import './App.css';
 
 function App() {
+  const [darkMode, setDarkMode] = useState(false);
+
+  const toggleDarkMode = () => {
+    setDarkMode(!darkMode);
+  };
+
+  useEffect(() => {
+    if (darkMode) {
+      document.body.classList.add('dark-mode');
+      document.body.classList.remove('light-mode');
+    } else {
+      document.body.classList.add('light-mode');
+      document.body.classList.remove('dark-mode');
+    }
+  }, [darkMode]);
+
   return (
     <div>
-      {/* Navbar */}
-      <Navbar bg="dark" variant="dark" expand="lg">
+      <Navbar bg={darkMode ? 'dark' : 'light'} variant={darkMode ? 'dark' : 'light'} expand="lg">
         <Navbar.Brand href="#home">My Portfolio</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="ml-auto">
             <Nav.Link href="#about">About Me</Nav.Link>
-            <Nav.Link href="#projects">Projects</Nav.Link>
+            <Nav.Link href="#skills">Skills</Nav.Link>
             <Nav.Link href="#contact">Contact</Nav.Link>
           </Nav>
         </Navbar.Collapse>
       </Navbar>
 
-      {/* About Section */}
-      <section id="about" className="py-5 bg-light">
+      <div className="theme-toggle">
+        <Button onClick={toggleDarkMode} variant={darkMode ? 'secondary' : 'primary'}>
+          {darkMode ? 'Light Mode' : 'Dark Mode'}
+        </Button>
+      </div>
+
+      <section id="about" className="py-5">
         <Container>
           <Row>
             <Col md={6}>
-              <h2>About Me</h2>
-              <p>
-                Hello! I'm a web developer with a passion for building interactive
-                and responsive websites. I specialize in ReactJS and have experience
-                with other technologies like Node.js, Express, and MongoDB.
+              <h2 className="about-header">About Me</h2>
+              <p className="about-text">
+                Hello! I'm Joachim Emanuelle M. Tan, new to web development and excited to share my projects with you. I have a passion for creating beautiful and functional web applications. In my portfolio, you'll find a selection of my work, showcasing my skills in HTML, CSS, JavaScript, and React.
+                Feel free to explore my projects and get in touch if you'd like to collaborate or learn more about what I do!
               </p>
+            </Col>
+            <Col md={6}>
+              <div className="text-center">
+                <Image
+                  src={profilePic}
+                  roundedCircle
+                  alt="My Profile"
+                  fluid
+                  className="profile-img"
+                />
+              </div>
             </Col>
           </Row>
         </Container>
       </section>
 
-      {/* Projects Section */}
-      <section id="projects" className="py-5">
+      <section id="skills" className="py-5">
         <Container>
-          <h2 className="text-center">Projects</h2>
+          <h2 className="mb-4">My Skills</h2>
           <Row>
             <Col md={4}>
-              <Card>
-                <Card.Img variant="top" src="https://via.placeholder.com/150" />
+              <Card className="mb-4">
                 <Card.Body>
-                  <Card.Title>Project 1</Card.Title>
+                  <Card.Title>HTML</Card.Title>
                   <Card.Text>
-                    A description of my project goes here. This could be a website, an app, etc.
+                    Semantic HTML5, accessibility, and SEO-friendly page structure.
                   </Card.Text>
-                  <Button variant="primary" href="https://github.com/my-github">GitHub Repo</Button>
                 </Card.Body>
               </Card>
             </Col>
-            {/* Add more project cards here */}
+
+            <Col md={4}>
+              <Card className="mb-4">
+                <Card.Body>
+                  <Card.Title>CSS</Card.Title>
+                  <Card.Text>
+                    Responsive layouts, Flexbox, Grid, and Bootstrap styling.
+                  </Card.Text>
+                </Card.Body>
+              </Card>
+            </Col>
+
+            <Col md={4}>
+              <Card className="mb-4">
+                <Card.Body>
+                  <Card.Title>JavaScript</Card.Title>
+                  <Card.Text>
+                    ES6 syntax, DOM manipulation, and interactive UI logic.
+                  </Card.Text>
+                </Card.Body>
+              </Card>
+            </Col>
+
+            <Col md={4}>
+              <Card className="mb-4">
+                <Card.Body>
+                  <Card.Title>React</Card.Title>
+                  <Card.Text>
+                    Functional components, hooks, props, and state management.
+                  </Card.Text>
+                </Card.Body>
+              </Card>
+            </Col>
           </Row>
         </Container>
       </section>
 
-      {/* Contact Section */}
-      <section id="contact" className="py-5 bg-light">
+      <section id="contact" className="py-5">
         <Container>
           <h2>Contact Me</h2>
-          <p>Email: myemail@example.com</p>
+          <p>Email: <a href="mailto:jmtan3@student.apc.edu.ph">jmtan3@student.apc.edu.ph</a></p>
+          <p>Mobile: <a href="tel:+1234567890">09177060254</a></p>
         </Container>
       </section>
     </div>
