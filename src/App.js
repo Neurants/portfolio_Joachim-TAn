@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { Container, Row, Col, Navbar, Nav, Button, Image, Card } from 'react-bootstrap';
-import profilePic from './assets/images/profile_pic.jpg';
+import { Container, Row, Col, Navbar, Nav, Button, Card } from 'react-bootstrap';
+import profilePic from './assets/images/profile_pic.jpg'; // Profile image import
 import './App.css';
 
 function App() {
@@ -18,19 +18,19 @@ function App() {
     }
   }, [darkMode]);
 
-  // Certificates as images in the public/images folder
+  // Certificates as PDF files stored in the public folder
   const certificates = [
     {
       name: 'How to Train Your Brain For Happiness',
-      image: '/images/CertificateOfCompletion_How_To_Train_Your_Brain_For_Happiness.jpg',
+      pdf: '/files/CertificateOfCompletion_HowToTrainYourBrainForHappiness.pdf', // Path to PDF file
     },
     {
       name: 'Learning Python 2021',
-      image: '/images/CertificateOfCompletion_Learning_Python_2021.jpg',
+      pdf: '/files/CertificateOfCompletion_LearningPython2021.pdf', // Path to PDF file
     },
     {
       name: 'Computer Science Principles Digital Information',
-      image: '/images/CertificateOfCompletion_Computer_Science_Principles_Digital_Information.jpg',
+      pdf: '/files/CertificateOfCompletion_ComputerSciencePrinciplesDigitalInformation.pdf', // Path to PDF file
     },
   ];
 
@@ -72,12 +72,11 @@ function App() {
             </Col>
             <Col md={6}>
               <div className="text-center">
-                <Image
+                <img
                   src={profilePic}
-                  roundedCircle
                   alt="My Profile"
-                  fluid
                   className="profile-img"
+                  style={{ maxWidth: '250px', borderRadius: '50%' }}
                 />
               </div>
             </Col>
@@ -134,19 +133,20 @@ function App() {
             {certificates.map((cert, index) => (
               <Col md={4} key={index} className="mb-4">
                 <h5>{cert.name}</h5>
-                <Image
-                  src={cert.image}
-                  alt={cert.name}
-                  fluid
-                  className="certificate-img"
-                />
+                <div style={{ textAlign: 'center' }}>
+                  <iframe
+                    src={cert.pdf}
+                    title={cert.name}
+                    width="80%"
+                    height="600px"
+                    style={{ border: '1px solid #ccc' }}
+                  ></iframe>
+                </div>
               </Col>
             ))}
           </Row>
         </Container>
       </section>
-
-      {/* Hobbies and Contact sections omitted for brevity */}
     </div>
   );
 }
