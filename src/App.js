@@ -18,19 +18,19 @@ function App() {
     }
   }, [darkMode]);
 
-  // Certificates as images stored in the public folder
+  // Certificates as images in the public/images folder
   const certificates = [
     {
       name: 'How to Train Your Brain For Happiness',
-      image: '/CertificateOfCompletion_HowToTrainYourBrainForHappiness.png', // Image in public folder
+      image: '/images/CertificateOfCompletion_How_To_Train_Your_Brain_For_Happiness.jpg',
     },
     {
       name: 'Learning Python 2021',
-      image: '/CertificateOfCompletion_LearningPython2021.png', // Image in public folder
+      image: '/images/CertificateOfCompletion_Learning_Python_2021.jpg',
     },
     {
       name: 'Computer Science Principles Digital Information',
-      image: '/CertificateOfCompletion_ComputerSciencePrinciplesDigitalInformation.png', // Image in public folder
+      image: '/images/CertificateOfCompletion_Computer_Science_Principles_Digital_Information.jpg',
     },
   ];
 
@@ -145,6 +145,8 @@ function App() {
           </Row>
         </Container>
       </section>
+
+      {/* Hobbies and Contact sections omitted for brevity */}
     </div>
   );
 }
