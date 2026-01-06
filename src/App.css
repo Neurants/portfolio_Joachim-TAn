@@ -18,14 +18,20 @@ body.light-mode .navbar .nav-link:hover {
   color: #007bff; /* link hover */
 }
 
+body.light-mode .profile-container {
+  perspective: 1000px; /* Create depth for the 3D effect */
+}
+
 body.light-mode .profile-img {
   max-width: 250px;
   height: auto;
+  transition: transform 0.5s; /* Smooth transition */
+  transform-style: preserve-3d; /* Enable 3D effect */
+  /* Optional: Add the front face of the profile image */
 }
 
-body.light-mode .theme-toggle button {
-  background-color: #007bff;
-  color: white;
+body.light-mode .profile-img:hover {
+  transform: rotateY(180deg); /* Flip the image on hover */
 }
 
 /* DARK MODE */
@@ -48,67 +54,43 @@ body.dark-mode .navbar .nav-link:hover {
   color: #007bff;
 }
 
+body.dark-mode .profile-container {
+  perspective: 1000px; /* Create depth for the 3D effect */
+}
+
 body.dark-mode .profile-img {
   max-width: 250px;
   height: auto;
+  transition: transform 0.5s;
+  transform-style: preserve-3d;
 }
 
-body.dark-mode .theme-toggle button {
-  background-color: #444;
-  color: white;
+body.dark-mode .profile-img:hover {
+  transform: rotateY(180deg); /* Flip the image on hover */
 }
 
-/* SECTION PADDING */
-body.light-mode #about,
-body.dark-mode #about,
-body.light-mode #contact,
-body.dark-mode #contact,
-body.light-mode #skills,
-body.dark-mode #skills {
+/* ADDITIONAL STYLES */
+#about {
   padding: 30px 0;
 }
 
-/* CONTACT SECTION COLORS */
-body.light-mode #contact {
-  background-color: #f8f9fa;
-  color: black;
+#skills {
+  padding: 30px 0;
 }
 
+#contact {
+  padding: 30px 0;
+}
+
+/* Additional general styles for sections */
+body.light-mode #contact,
 body.dark-mode #contact {
-  background-color: #333;
-  color: white;
-}
-
-/* SKILLS SECTION COLORS */
-body.light-mode #skills {
   background-color: #f8f9fa;
   color: black;
 }
 
+body.light-mode #skills,
 body.dark-mode #skills {
-  background-color: #121212;
-  color: white;
-}
-
-body.light-mode #skills .card {
-  background-color: white;
+  background-color: #f8f9fa;
   color: black;
-}
-
-body.dark-mode #skills .card {
-  background-color: #1e1e1e;
-  color: white;
-}
-
-/* TRANSITION */
-#skills, .card {
-  transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-/* THEME TOGGLE BUTTON POSITION */
-.theme-toggle {
-  position: fixed;
-  top: 20px;
-  right: 20px;
-  z-index: 100;
 }
