@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { Container, Row, Col, Navbar, Nav, Button, Image, Card } from 'react-bootstrap';
-import profilePic from './assets/images/profile_pic.jpg';
+import profilePic from './assets/images/profile_pic.jpg'; // Profile picture
+import certificate1 from './assets/images/CertificateOfCompletion_HowToTrainYourBrainForHappiness.png'; // Screenshot for first certificate
+import certificate2 from './assets/images/CertificateOfCompletion_LearningPython2021.png'; // Screenshot for second certificate
+import certificate3 from './assets/images/CertificateOfCompletion_ComputerSciencePrinciplesDigitalInformation.png'; // Screenshot for third certificate
 import './App.css';
 
 function App() {
@@ -18,21 +21,20 @@ function App() {
     }
   }, [darkMode]);
 
-  // Add all your PDF certificates here (place PDFs in public folder)
+  // Add your certificates here as images imported from the src folder
   const certificates = [
     {
       name: 'How to Train Your Brain For Happiness',
-      file: '/files/CertificateOfCompletion_HowToTrainYourBrainForHappiness.pdf',
+      image: certificate1, // Directly using the imported image
     },
     {
       name: 'Learning Python 2021',
-      file: '/files/CertificateOfCompletion_LearningPython2021.pdf',
+      image: certificate2, // Directly using the imported image
     },
     {
       name: 'Computer Science Principles Digital Information',
-      file: '/files/CertificateOfCompletion_ComputerSciencePrinciplesDigitalInformation.pdf',
+      image: certificate3, // Directly using the imported image
     },
-    // Add more certificates here
   ];
 
   return (
@@ -167,15 +169,14 @@ function App() {
           <h2 className="mb-4">Certificates</h2>
           <Row>
             {certificates.map((cert, index) => (
-              <Col md={12} key={index} className="mb-4">
+              <Col md={4} key={index} className="mb-4">
                 <h5>{cert.name}</h5>
-                <iframe
-                  src={cert.file}
-                  title={cert.name}
-                  width="100%"
-                  height="600px"
-                  style={{ border: '1px solid #ccc' }}
-                ></iframe>
+                <Image
+                  src={cert.image}
+                  alt={cert.name}
+                  fluid
+                  className="certificate-img"
+                />
               </Col>
             ))}
           </Row>
