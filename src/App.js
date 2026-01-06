@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { Container, Row, Col, Navbar, Nav, Button, Image, Card } from 'react-bootstrap';
-import profilePic from './assets/images/profile_pic.jpg';
+import profilePic from './assets/images/profile_pic.jpg';  // Profile image
+import brainHappinessCert from './assets/files/CertificateOfCompletion_HowToTrainYourBrainForHappiness.pdf';
+import pythonCert from './assets/files/CertificateOfCompletion_LearningPython2021.pdf';
+import csCert from './assets/files/CertificateOfCompletion_ComputerSciencePrinciplesDigitalInformation.pdf';
 import './App.css';
 
 function App() {
@@ -18,19 +21,19 @@ function App() {
     }
   }, [darkMode]);
 
-  // Add all your PDF certificates here (place PDFs in public folder)
+  // Certificates array with the imported PDF files
   const certificates = [
     {
       name: 'How to Train Your Brain For Happiness',
-      file: '/CertificateOfCompletion_HowToTrainYourBrainForHappiness.pdf',
+      file: brainHappinessCert,
     },
     {
       name: 'Learning Python 2021',
-      file: '/CertificateOfCompletion_LearningPython2021.pdf',
+      file: pythonCert,
     },
     {
       name: 'Computer Science Principles Digital Information',
-      file: '/CertificateOfCompletion_ComputerSciencePrinciplesDigitalInformation.pdf',
+      file: csCert,
     },
   ];
 
@@ -58,7 +61,7 @@ function App() {
         </Button>
       </div>
 
-      {/* About Me */}
+      {/* About Me Section */}
       <section id="about" className="py-5">
         <Container>
           <Row>
@@ -85,7 +88,7 @@ function App() {
         </Container>
       </section>
 
-      {/* Skills */}
+      {/* Skills Section */}
       <section id="skills" className="py-5">
         <Container>
           <h2 className="mb-4">My Skills</h2>
@@ -126,7 +129,7 @@ function App() {
         </Container>
       </section>
 
-      {/* Hobbies */}
+      {/* Hobbies Section */}
       <section id="hobbies" className="py-5">
         <Container>
           <h2 className="mb-4">My Hobbies</h2>
@@ -151,7 +154,7 @@ function App() {
         </Container>
       </section>
 
-      {/* Contact */}
+      {/* Contact Section */}
       <section id="contact" className="py-5">
         <Container>
           <h2>Contact Me</h2>
@@ -160,7 +163,7 @@ function App() {
         </Container>
       </section>
 
-      {/* Certificates */}
+      {/* Certificates Section */}
       <section id="certificates" className="py-5">
         <Container>
           <h2 className="mb-4">Certificates</h2>
@@ -169,7 +172,7 @@ function App() {
               <Col md={12} key={index} className="mb-4">
                 <h5>{cert.name}</h5>
                 <iframe
-                  src={cert.file}
+                  src={cert.file}  // This is now pointing to the imported files
                   title={cert.name}
                   width="100%"
                   height="600px"
@@ -180,6 +183,7 @@ function App() {
           </Row>
         </Container>
       </section>
+
     </div>
   );
 }
