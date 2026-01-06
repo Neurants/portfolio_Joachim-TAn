@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Container, Row, Col, Navbar, Nav, Button, Image, Card } from 'react-bootstrap';
-import profilePic from './assets/images/profile_pic.jpg';  // Your profile image remains as is
+import profilePic from './assets/images/profile_pic.jpg';
 import './App.css';
 
 function App() {
