@@ -1,9 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Container, Row, Col, Navbar, Nav, Button, Image, Card } from 'react-bootstrap';
-import profilePic from './assets/images/profile_pic.jpg'; // Profile picture
-import certificate1 from './assets/images/CertificateOfCompletion_HowToTrainYourBrainForHappiness.png'; // Screenshot for first certificate
-import certificate2 from './assets/images/CertificateOfCompletion_LearningPython2021.png'; // Screenshot for second certificate
-import certificate3 from './assets/images/CertificateOfCompletion_ComputerSciencePrinciplesDigitalInformation.png'; // Screenshot for third certificate
+import profilePic from './assets/images/profile_pic.jpg';  // Your profile image remains as is
 import './App.css';
 
 function App() {
@@ -21,19 +18,19 @@ function App() {
     }
   }, [darkMode]);
 
-  // Add your certificates here as images imported from the src folder
+  // Certificates as images stored in the public folder
   const certificates = [
     {
       name: 'How to Train Your Brain For Happiness',
-      image: certificate1, // Directly using the imported image
+      image: '/CertificateOfCompletion_HowToTrainYourBrainForHappiness.png', // Image in public folder
     },
     {
       name: 'Learning Python 2021',
-      image: certificate2, // Directly using the imported image
+      image: '/CertificateOfCompletion_LearningPython2021.png', // Image in public folder
     },
     {
       name: 'Computer Science Principles Digital Information',
-      image: certificate3, // Directly using the imported image
+      image: '/CertificateOfCompletion_ComputerSciencePrinciplesDigitalInformation.png', // Image in public folder
     },
   ];
 
@@ -126,40 +123,6 @@ function App() {
               </Card>
             </Col>
           </Row>
-        </Container>
-      </section>
-
-      {/* Hobbies */}
-      <section id="hobbies" className="py-5">
-        <Container>
-          <h2 className="mb-4">My Hobbies</h2>
-          <Row>
-            <Col md={6}>
-              <Card className="mb-4">
-                <Card.Body>
-                  <Card.Title>Anime Lover</Card.Title>
-                  <Card.Text>I enjoy watching anime in my spare time. It's a great way to relax and explore different stories.</Card.Text>
-                </Card.Body>
-              </Card>
-            </Col>
-            <Col md={6}>
-              <Card className="mb-4">
-                <Card.Body>
-                  <Card.Title>Gaming</Card.Title>
-                  <Card.Text>I love exploring video games like RPGs, action-adventure, and FPS games such as Valorant.</Card.Text>
-                </Card.Body>
-              </Card>
-            </Col>
-          </Row>
-        </Container>
-      </section>
-
-      {/* Contact */}
-      <section id="contact" className="py-5">
-        <Container>
-          <h2>Contact Me</h2>
-          <p>Email: <a href="mailto:jmtan3@student.apc.edu.ph">jmtan3@student.apc.edu.ph</a></p>
-          <p>Mobile: 09177060254</p>
         </Container>
       </section>
 
